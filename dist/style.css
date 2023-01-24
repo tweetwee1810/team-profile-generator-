@@ -1,11 +1,12 @@
 #hero {
     padding: 50px;
-    width: 40% 100%;
+    width: 20% 100%;
     text-align: center;
     background-color: rgb(206, 33, 33);
     color: white;
 }
 .card {
+    display: inline-block;
     width: 300px;
     margin: 20px auto;
     border: 1px solid #ccc;
