@@ -12,6 +12,21 @@ const promptedManger = function(){
             type: 'input',
             name: 'manager name',
             message: `what is manager's name?`,
+        }, 
+        {
+            type: 'input',
+            name: 'ID',
+            message: `what is emplpyee ID?`,
+        }, 
+        {
+            type: 'input',
+            name: 'email',
+            message: `what is manager's email address?`,
+        }, 
+        {
+            type: 'input',
+            name: 'office number',
+            message: `what is office number?`,
         }
     ])
     .then((response) => {
@@ -38,6 +53,67 @@ const promptedMenu = function() {
         console.log(response)
     })
     
+}
+const promptedEngineer = function() {
+    inquire.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: `what is engineer's name?`,
+        }, 
+        {
+            type: 'input',
+            name: 'ID',
+            message: `what is emplpyee ID?`,
+        }, 
+        {
+            type: 'input',
+            name: 'email',
+            message: `what is Engineer's email address?`,
+        }, 
+        {
+            type: 'input',
+            name: 'github',
+            message: `what is engineer's github account?`,
+        },
+        {
+            type: 'list',
+            name: 'adding new employee',
+            message: 'would you like to add another employee?',
+            choices: ['yes', 'no']
+        }
+    ])
+}
+const promptedIntern = function() {
+    inquire.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: `what is intern's name?`,
+        }, 
+        {
+            type: 'input',
+            name: 'ID',
+            message: `what is intern ID?`,
+        }, 
+        {
+            type: 'input',
+            name: 'email',
+            message: `what is intern's email address?`,
+        }, 
+        {
+            type: 'input',
+            name: 'school',
+            message: `what is intern's school?`,
+        }, 
+       
+        {
+            type: 'list',
+            name: 'adding new employee',
+            message: 'would you like to add another intern?',
+            choices: ['yes', 'no']
+        }
+    ])
 }
 //prompted menu
 //engineer
