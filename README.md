@@ -23,7 +23,7 @@ This is team-project- generator that generates a team website that contains info
 * Select the option if you want Engineer or Intern
 * Answer (type in) based on the option for Engineer (name, id, email and github) or Intern (name, id, email and school)
 
-Demo video:  [label](https://drive.google.com/file/d/1D-U2-wOqlge2yTXM7S2JhKunavv2ZXXo/view)
+Demo video:  [My video](https://drive.google.com/file/d/1D-U2-wOqlge2yTXM7S2JhKunavv2ZXXo/view)
 
 ## License 
 
