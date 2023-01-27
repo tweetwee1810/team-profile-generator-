@@ -3,19 +3,22 @@
 //prompted employee ID
 //email address
 //office number
-
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
 const inquirer = require('inquirer');
+const employeeArray = [];
 const promptedManger = function(){
     inquirer
     .prompt([
         {
             type: 'input',
-            name: 'manager name',
+            name: 'name',
             message: `what is manager's name?`,
         }, 
         {
             type: 'input',
-            name: 'ID',
+            name: 'id',
             message: `what is emplpyee ID?`,
         }, 
         {
@@ -25,12 +28,16 @@ const promptedManger = function(){
         }, 
         {
             type: 'input',
-            name: 'office number',
+            name: 'officeNumber',
             message: `what is office number?`,
         }
     ])
     .then((response) => {
         console.log(response)
+        const newManager = new Manager(
+            response.name, response.id, response.email, response.officeNumber
+        )
+        employeeArray.push(newManager)
         promptedMenu();
     })
     
@@ -39,8 +46,8 @@ const promptedMenu = function() {
     inquirer .prompt ([
         {
             type: "list",
-            name: 'menu options',
-            message: `what's the job type?`,
+            name: 'menu',
+            message: `would you like to add another employee or finish?`,
             choices: [
                 'engineer',
                 'intern',
@@ -50,12 +57,27 @@ const promptedMenu = function() {
 
     ])
     .then((response) => {
+        switch (response.menu) {
+            case 'engineer':
+                promptedEngineer();
+                
+                break;
+            case 'intern':
+                promptedIntern();
+                break;
+            default:
+                finish();
+                break;
+        }
         console.log(response)
     })
     
 }
+const finish = function(){
+    console.log(employeeArray)
+}
 const promptedEngineer = function() {
-    inquire.prompt([
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -63,7 +85,7 @@ const promptedEngineer = function() {
         }, 
         {
             type: 'input',
-            name: 'ID',
+            name: 'id',
             message: `what is emplpyee ID?`,
         }, 
         {
@@ -76,16 +98,18 @@ const promptedEngineer = function() {
             name: 'github',
             message: `what is engineer's github account?`,
         },
-        {
-            type: 'list',
-            name: 'adding new employee',
-            message: 'would you like to add another employee?',
-            choices: ['yes', 'no']
-        }
     ])
+    .then((response) => {
+        console.log(response)
+        const newEngineer = new Engineer(
+            response.name, response.id, response.email, response.github
+        )
+        employeeArray.push(newEngineer)
+        promptedMenu();
+    })
 }
 const promptedIntern = function() {
-    inquire.prompt([
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -93,7 +117,7 @@ const promptedIntern = function() {
         }, 
         {
             type: 'input',
-            name: 'ID',
+            name: 'id',
             message: `what is intern ID?`,
         }, 
         {
@@ -107,16 +131,24 @@ const promptedIntern = function() {
             message: `what is intern's school?`,
         }, 
        
-        {
-            type: 'list',
-            name: 'adding new employee',
-            message: 'would you like to add another intern?',
-            choices: ['yes', 'no']
-        }
     ])
+    .then((response) => {
+        console.log(response)
+        const newIntern = new Intern(
+            response.name, response.id, response.email, response.school
+        )
+        employeeArray.push(newIntern)
+        promptedMenu();
+    })
 }
 //prompted menu
 //engineer
 //intern
 promptedManger();
 // promptedMenu();
+function init() {
+    promptedManger();
+}
+// const generateMarkdown(data) {
+
+// }

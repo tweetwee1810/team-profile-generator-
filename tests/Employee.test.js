@@ -1,1 +1,1 @@
-const employee = require('../')
+const {Employee} = require('../lib/classes')
